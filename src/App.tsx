@@ -37,11 +37,20 @@ function App() {
     <ChakraProvider>
     <div className={darkMode ? 'bg-[#1f1f1f] px-10 pt-5' : 'bg-stone-200 px-10 pt-5'}>
       <div className='text-green rounded-full p-2 flex justify-between'>
-        <motion.div className={(darkMode ? 'text-stone-200' : 'text-stone-800') + ' font-bold'}>Japanese 🌸 </motion.div>
+        <motion.div
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+         className={(darkMode ? 'text-stone-200' : 'text-stone-800') + ' font-bold text-xl'}>Japanese 🌸 </motion.div>
       <div>
         <motion.button 
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
         className={darkMode ? 'text-stone-200' : 'text-stone-800'} onClick={() => setDarkMode(!darkMode)}>{darkMode ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}</motion.button>
         </div>
       </div>
@@ -53,6 +62,9 @@ function App() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+          
         >
           {hiraganaOrKatakana === 'katakana' ? randomKatakana.kana : randomHiragana.hiragana}
         </motion.div>
@@ -62,18 +74,26 @@ function App() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
         >
           {hiraganaOrKatakana === 'katakana' ? randomKatakana.roumaji : randomHiragana.roumaji}
         </motion.div>
         <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.9 }}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
           className={"border border-stone-700 px-4 py-2 rounded-md mb-2 " + (darkMode ? 'text-stone-200' : 'text-stone-800')} 
           onClick={getRandomKatakana}>Get Random Katakana
         </motion.button> 
         <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.9 }}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
           className={"border border-stone-700 px-4 py-2 rounded-md " + (darkMode ? 'text-stone-200' : 'text-stone-800')} 
           onClick={getRandomHiragana}>Get Random Hiragana
         </motion.button> 
