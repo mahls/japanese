@@ -6,6 +6,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { MdOutlineDarkMode } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
 import { motion } from 'framer-motion';
+import { LiaGithubAlt } from "react-icons/lia";
 
 function App() {
 
@@ -35,7 +36,7 @@ function App() {
 
   return (
     <ChakraProvider>
-    <div className={darkMode ? 'bg-[#1f1f1f] px-10 pt-5' : 'bg-stone-200 px-10 pt-5'}>
+    <div className={darkMode ? 'bg-[#1f1f1f] sm:px-10 px-5 pt-5' : 'bg-stone-200 sm:px-10 px-5 pt-5'}>
       <div className='text-green rounded-full p-2 flex justify-between'>
         <motion.div
           whileHover={{ scale: 1.2 }}
@@ -43,15 +44,31 @@ function App() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-         className={(darkMode ? 'text-stone-200' : 'text-stone-800') + ' font-bold text-xl'}>Japanese 🌸 </motion.div>
-      <div>
+         className={(darkMode ? 'text-stone-200' : 'text-stone-800') + ' font-bold sm:text-xl'}>Japanese 🌸 
+        </motion.div>
+        <div className='flex'>
+        <div>
         <motion.button 
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 0.9 }}
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className={darkMode ? 'text-stone-200' : 'text-stone-800'} onClick={() => setDarkMode(!darkMode)}>{darkMode ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}</motion.button>
+        className={darkMode ? 'text-stone-200' : 'text-stone-800'} onClick={() => setDarkMode(!darkMode)}>{darkMode ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
+        </motion.button>
+        </div>
+        <div>
+            <motion.button
+             whileHover={{ scale: 1.2 }}
+             whileTap={{ scale: 0.9 }}
+             initial={{ opacity: 0, y: -10 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.5 }}
+            >
+
+              <a href='https://github.com/mahls/japanese'><LiaGithubAlt className={darkMode ? 'text-stone-200 ml-4 relative top-0.5' : 'text-stone-800' + ' ml-4 relative top-0.5'} /></a>
+            </motion.button>
+        </div>
         </div>
       </div>
       <div className="flex flex-col items-center h-screen mt-20">
@@ -85,7 +102,7 @@ function App() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-          className={"border border-stone-700 px-4 py-2 rounded-md mb-2 " + (darkMode ? 'text-stone-200' : 'text-stone-800')} 
+          className={"border border-stone-700 px-4 py-2 rounded-md mb-2 text-xs " + (darkMode ? 'text-stone-200' : 'text-stone-800')} 
           onClick={getRandomKatakana}>Get Random Katakana
         </motion.button> 
         <motion.button 
@@ -94,11 +111,12 @@ function App() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-          className={"border border-stone-700 px-4 py-2 rounded-md " + (darkMode ? 'text-stone-200' : 'text-stone-800')} 
+          className={"border border-stone-700 px-4 py-2 rounded-md mb-2 text-xs " + (darkMode ? 'text-stone-200' : 'text-stone-800')} 
           onClick={getRandomHiragana}>Get Random Hiragana
         </motion.button> 
         </div>
     </div>
+
     </ChakraProvider>
   )
 }
